@@ -1,0 +1,301 @@
+=====================================
+==== Statistics of 5.0 % of data =====
+=====================================
+
+	*Number of (total) keywords 138274
+	*Number of (total) files 30109
+	*Number of (partial) keywords 14669
+	*Number of (partial) files 1505
+	*Keywords with unique selectivities (in known data) 93
+	*Keywords with unique volumes (in keyword space) 4553
+	*Volumes (in keyword space) 5031
+	*Unique (selectivity,volume) (in keyword space) 4715
+	*Total number of (most/less frequent) keywords 7095
+
+===================================
+====  Attacks of 5.0 % of data; iteration 0 =====
+===================================
+
+Know 1276/5000 for sure
+Round 5.0 Subgraph VP Attack success rate 0.2278
+
+===================================
+====  Attacks of 5.0 % of data; iteration 1 =====
+===================================
+
+Know 1279/5000 for sure
+Round 5.0 Subgraph VP Attack success rate 0.2284
+
+===================================
+====  Attacks of 5.0 % of data; iteration 2 =====
+===================================
+
+Know 1274/5000 for sure
+Round 5.0 Subgraph VP Attack success rate 0.2278
+
+===================================
+====  Attacks of 5.0 % of data; iteration 3 =====
+===================================
+
+Know 1275/5000 for sure
+Round 5.0 Subgraph VP Attack success rate 0.2278
+
+===================================
+====  Attacks of 5.0 % of data; iteration 4 =====
+===================================
+
+Know 1276/5000 for sure
+Round 5.0 Subgraph VP Attack success rate 0.228
+Subgraph Volume Pattern-based Attack {5.0=[0.2278, 0.228, 0.2284]}
+
+=====================================
+==== Statistics of 10.0 % of data =====
+=====================================
+
+	*Number of (total) keywords 138274
+	*Number of (total) files 30109
+	*Number of (partial) keywords 24508
+	*Number of (partial) files 3010
+	*Keywords with unique selectivities (in known data) 152
+	*Keywords with unique volumes (in keyword space) 4667
+	*Volumes (in keyword space) 4801
+	*Unique (selectivity,volume) (in keyword space) 4743
+	*Total number of (most/less frequent) keywords 5094
+
+===================================
+====  Attacks of 10.0 % of data; iteration 0 =====
+===================================
+
+Know 2272/5000 for sure
+Round 10.0 Subgraph VP Attack success rate 0.4544
+
+===================================
+====  Attacks of 10.0 % of data; iteration 1 =====
+===================================
+
+Know 2273/5000 for sure
+Round 10.0 Subgraph VP Attack success rate 0.4546
+
+===================================
+====  Attacks of 10.0 % of data; iteration 2 =====
+===================================
+
+Know 2279/5000 for sure
+Round 10.0 Subgraph VP Attack success rate 0.4558
+
+===================================
+====  Attacks of 10.0 % of data; iteration 3 =====
+===================================
+
+Know 2279/5000 for sure
+Round 10.0 Subgraph VP Attack success rate 0.4558
+
+===================================
+====  Attacks of 10.0 % of data; iteration 4 =====
+===================================
+
+Know 2274/5000 for sure
+Round 10.0 Subgraph VP Attack success rate 0.4548
+Subgraph Volume Pattern-based Attack {10.0=[0.4544, 0.4546, 0.4548, 0.4558]}
+
+=====================================
+==== Statistics of 30.0 % of data =====
+=====================================
+
+	*Number of (total) keywords 138274
+	*Number of (total) files 30109
+	*Number of (partial) keywords 53386
+	*Number of (partial) files 9032
+	*Keywords with unique selectivities (in known data) 299
+	*Keywords with unique volumes (in keyword space) 4934
+	*Volumes (in keyword space) 4986
+	*Unique (selectivity,volume) (in keyword space) 4976
+	*Total number of (most/less frequent) keywords 5066
+
+===================================
+====  Attacks of 30.0 % of data; iteration 0 =====
+===================================
+
+Know 3143/5000 for sure
+Round 30.0 Subgraph VP Attack success rate 0.6286
+
+===================================
+====  Attacks of 30.0 % of data; iteration 1 =====
+===================================
+
+Know 3144/5000 for sure
+Round 30.0 Subgraph VP Attack success rate 0.6288
+
+===================================
+====  Attacks of 30.0 % of data; iteration 2 =====
+===================================
+
+Know 3150/5000 for sure
+Round 30.0 Subgraph VP Attack success rate 0.63
+
+===================================
+====  Attacks of 30.0 % of data; iteration 3 =====
+===================================
+
+Know 3147/5000 for sure
+Round 30.0 Subgraph VP Attack success rate 0.6294
+
+===================================
+====  Attacks of 30.0 % of data; iteration 4 =====
+===================================
+
+Know 3143/5000 for sure
+Round 30.0 Subgraph VP Attack success rate 0.6286
+Subgraph Volume Pattern-based Attack {30.0=[0.6286, 0.6288, 0.6294, 0.63]}
+
+=====================================
+==== Statistics of 40.0 % of data =====
+=====================================
+
+	*Number of (total) keywords 138274
+	*Number of (total) files 30109
+	*Number of (partial) keywords 74273
+	*Number of (partial) files 12043
+	*Keywords with unique selectivities (in known data) 365
+	*Keywords with unique volumes (in keyword space) 4901
+	*Volumes (in keyword space) 4943
+	*Unique (selectivity,volume) (in keyword space) 4919
+	*Total number of (most/less frequent) keywords 5011
+
+===================================
+====  Attacks of 40.0 % of data; iteration 0 =====
+===================================
+
+Know 3249/5000 for sure
+Round 40.0 Subgraph VP Attack success rate 0.6498
+
+===================================
+====  Attacks of 40.0 % of data; iteration 1 =====
+===================================
+
+Know 3254/5000 for sure
+Round 40.0 Subgraph VP Attack success rate 0.6508
+
+===================================
+====  Attacks of 40.0 % of data; iteration 2 =====
+===================================
+
+Know 3246/5000 for sure
+Round 40.0 Subgraph VP Attack success rate 0.6492
+
+===================================
+====  Attacks of 40.0 % of data; iteration 3 =====
+===================================
+
+Know 3248/5000 for sure
+Round 40.0 Subgraph VP Attack success rate 0.6496
+
+===================================
+====  Attacks of 40.0 % of data; iteration 4 =====
+===================================
+
+Know 3243/5000 for sure
+Round 40.0 Subgraph VP Attack success rate 0.6486
+Subgraph Volume Pattern-based Attack {40.0=[0.6486, 0.6492, 0.6496, 0.6498, 0.6508]}
+
+=====================================
+==== Statistics of 50.0 % of data =====
+=====================================
+
+	*Number of (total) keywords 138274
+	*Number of (total) files 30109
+	*Number of (partial) keywords 90591
+	*Number of (partial) files 15054
+	*Keywords with unique selectivities (in known data) 418
+	*Keywords with unique volumes (in keyword space) 4903
+	*Volumes (in keyword space) 4950
+	*Unique (selectivity,volume) (in keyword space) 4941
+	*Total number of (most/less frequent) keywords 5022
+
+===================================
+====  Attacks of 50.0 % of data; iteration 0 =====
+===================================
+
+Know 3754/5000 for sure
+Round 50.0 Subgraph VP Attack success rate 0.7508
+
+===================================
+====  Attacks of 50.0 % of data; iteration 1 =====
+===================================
+
+Know 3757/5000 for sure
+Round 50.0 Subgraph VP Attack success rate 0.7514
+
+===================================
+====  Attacks of 50.0 % of data; iteration 2 =====
+===================================
+
+Know 3756/5000 for sure
+Round 50.0 Subgraph VP Attack success rate 0.7512
+
+===================================
+====  Attacks of 50.0 % of data; iteration 3 =====
+===================================
+
+Know 3754/5000 for sure
+Round 50.0 Subgraph VP Attack success rate 0.7508
+
+===================================
+====  Attacks of 50.0 % of data; iteration 4 =====
+===================================
+
+Know 3754/5000 for sure
+Round 50.0 Subgraph VP Attack success rate 0.7508
+Subgraph Volume Pattern-based Attack {50.0=[0.7508, 0.7512, 0.7514]}
+
+=====================================
+==== Statistics of 90.0 % of data =====
+=====================================
+
+	*Number of (total) keywords 138274
+	*Number of (total) files 30109
+	*Number of (partial) keywords 126712
+	*Number of (partial) files 27098
+	*Keywords with unique selectivities (in known data) 584
+	*Keywords with unique volumes (in keyword space) 4902
+	*Volumes (in keyword space) 4947
+	*Unique (selectivity,volume) (in keyword space) 4916
+	*Total number of (most/less frequent) keywords 5021
+
+===================================
+====  Attacks of 90.0 % of data; iteration 0 =====
+===================================
+
+Know 4405/5000 for sure
+Round 90.0 Subgraph VP Attack success rate 0.881
+
+===================================
+====  Attacks of 90.0 % of data; iteration 1 =====
+===================================
+
+Know 4405/5000 for sure
+Round 90.0 Subgraph VP Attack success rate 0.881
+
+===================================
+====  Attacks of 90.0 % of data; iteration 2 =====
+===================================
+
+Know 4402/5000 for sure
+Round 90.0 Subgraph VP Attack success rate 0.8804
+
+===================================
+====  Attacks of 90.0 % of data; iteration 3 =====
+===================================
+
+Know 4407/5000 for sure
+Round 90.0 Subgraph VP Attack success rate 0.8814
+
+===================================
+====  Attacks of 90.0 % of data; iteration 4 =====
+===================================
+
+Know 4404/5000 for sure
+Round 90.0 Subgraph VP Attack success rate 0.8808
+Subgraph Volume Pattern-based Attack {90.0=[0.8804, 0.8808, 0.881, 0.8814]}
+
+Process finished with exit code 0

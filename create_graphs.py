@@ -160,7 +160,6 @@ def plot(percentage=False):
     # Combine the legend for all 2 y-axis
     handles, labels = [(a + b) for a, b in zip(ax.get_legend_handles_labels(), ax2.get_legend_handles_labels())]
     ax.legend(handles, labels, loc='lower right')
-    ax.legend(loc='lower right')
 
     # Save the plot with an appropriate title
     fig.suptitle(f"{prefix}Files and {prefix}queries recovered for the {dataset} dataset")

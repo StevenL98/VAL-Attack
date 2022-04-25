@@ -74,6 +74,8 @@ def extract_wiki(maildir):
     path = os.path.expanduser(maildir)
     files = glob.glob(f"{path}/*")
 
+    files = files[:50000]
+
     result = {}
     for file in tqdm.tqdm(iterable=files, desc="Reading the wikipedia pages"):
         with open(file, "r", encoding='utf-8') as wiki_file:

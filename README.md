@@ -27,3 +27,4 @@ There are a number of files:
 - pip
 - Enron dataset: available from https://www.cs.cmu.edu/~enron/enron_mail_20150507.tar.gz
 - Lucene dataset: available via `lucene.sh`
+- Wikipedia dataset: https://dumps.wikimedia.org/simplewiki/20220401/simplewiki-20220401-pages-meta-current.xml.bz2 extracted via the tool from David Shapiro available via https://github.com/daveshap/PlainTextWikipedia 

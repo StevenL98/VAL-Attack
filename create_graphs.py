@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-attack_name = 'VAL'
-
 
 # Read the accuracy, depending on the result file
 def get_accuracy(file_name, percentage):
@@ -75,111 +73,95 @@ def get_accuracy_subgraph(file_name, percentage):
     return acc
 
 
-def plot(percentage=False):
-    # Our result file
-    file_name = f"accuracy_{dataset}.txt"
-    prefix = '%' if percentage else '#'
-
-    # Get the accuracy for our results
-    acc = get_accuracy(file_name, percentage)
-
+# Plot the results, depending on the datasets and output
+def plot(datasets, percentage=False, part='files'):
     # Create a figure with multiple axes
     fig, ax = plt.subplots()
-    ax2 = ax.twinx()
 
-    # Set the x-axis to the leakage percentages
-    x = acc.keys()
+    x = leaked_percentages
+    prefix = '%' if percentage else '#'
 
-    # Plot the files recovered
-    y = np.array([acc[key]['average_files'] for key in x])
-    error = [acc[key]['error_files'] for key in x]
+    for dataset in datasets:
+        # Our result file
+        file_name = f"accuracy_{dataset}.txt"
 
-    ax.plot(x, y, color='#1B2ACC', label=f'{prefix}recovered files ' + attack_name)
-    ax.fill_between(x, np.clip(y - error, 0, 100) if percentage else y - error,
-                    np.clip(y + error, 0, 100) if percentage else y + error, alpha=0.5,
-                    edgecolor='#1B2ACC', facecolor='#089FFF')
-
-    # Plot the queries recovered
-    y = np.array([acc[key]['average_queries'] for key in x])
-    error = [acc[key]['error_queries'] for key in x]
-
-    ax2.plot(x, y, color='#CC4F1B', label=f'{prefix}recovered queries ' + attack_name)
-    ax2.fill_between(x, np.clip(y - error, 0, 100) if percentage else y - error,
-                     np.clip(y + error, 0, 100) if percentage else y + error, alpha=0.5,
-                     edgecolor='#CC4F1B', facecolor='#FF9848')
-
-    # Compare with the LEAP attack and the Subgraph_vol attack
-    if compare:
-        # LEAP
-        file_name = f"./leap/accuracy_{dataset}.txt"
+        # Get the accuracy for our results
         acc = get_accuracy(file_name, percentage)
 
         # Plot the files recovered
-        y = np.array([acc[key]['average_files'] for key in x])
-        error = [acc[key]['error_files'] for key in x]
+        y = np.array([acc[key][f'average_{part}'] for key in x])
+        error = [acc[key][f'error_{part}'] for key in x]
 
-        ax.plot(x, y, color='#3F7F4C', label=f'{prefix}recovered files LEAP')
+        ax.plot(x, y, color=colors[dataset][0],
+                label=f'{prefix}recovered {part} {dataset.title() if not compare else "VAL"}')
         ax.fill_between(x, np.clip(y - error, 0, 100) if percentage else y - error,
                         np.clip(y + error, 0, 100) if percentage else y + error, alpha=0.5,
-                        edgecolor='#3F7F4C', facecolor='#7EFF99')
+                        edgecolor=colors[dataset][0], facecolor=colors[dataset][1])
 
-        # Plot the queries recovered
-        y = np.array([acc[key]['average_queries'] for key in x])
-        error = [acc[key]['error_queries'] for key in x]
+        # Compare with the LEAP attack and the Subgraph_vol attack
+        if compare:
+            # LEAP
+            file_name = f"./leap/accuracy_{dataset}.txt"
+            acc = get_accuracy(file_name, percentage)
 
-        ax2.plot(x, y, color='#fff530', label=f'{prefix}recovered queries LEAP')
-        ax2.fill_between(x, np.clip(y - error, 0, 100) if percentage else y - error,
-                         np.clip(y + error, 0, 100) if percentage else y + error, alpha=0.5,
-                         edgecolor='#fff530', facecolor='#ede998')
+            # Plot the files recovered
+            y = np.array([acc[key][f'average_{part}'] for key in x])
+            error = [acc[key][f'error_{part}'] for key in x]
 
-        # Subgraph
-        file_name = f"./subgraph_vol/accuracy_{dataset}.txt"
-        acc = get_accuracy_subgraph(file_name, percentage)
+            ax.plot(x, y, color='#3F7F4C', label=f'{prefix}recovered {part} LEAP')
+            ax.fill_between(x, np.clip(y - error, 0, 100) if percentage else y - error,
+                            np.clip(y + error, 0, 100) if percentage else y + error, alpha=0.5,
+                            edgecolor='#3F7F4C', facecolor='#7EFF99')
 
-        # Plot the queries recovered
-        y = np.array([acc[key]['average_queries'] for key in x])
-        error = [acc[key]['error_queries'] for key in x]
+            # The subgraph attack only recovers queries
+            if part == 'queries':
+                # Subgraph
+                file_name = f"./subgraph_vol/accuracy_{dataset}.txt"
+                acc = get_accuracy_subgraph(file_name, percentage)
 
-        ax.plot(x, y, color='C1', label=f'{prefix}recovered queries Subgraph_vol')
-        ax.fill_between(x, np.clip(y - error, 0, 100) if percentage else y - error,
-                        np.clip(y + error, 0, 100) if percentage else y + error, alpha=0.5,
-                        edgecolor='#fff530', facecolor='#ede998')
+                # Plot the queries recovered
+                y = np.array([acc[key]['average_queries'] for key in x])
+                error = [acc[key]['error_queries'] for key in x]
 
-    # Show a grid
-    # ax.grid()
-    # ax2.grid(linestyle='--')
+                ax.plot(x, y, color='C1', label=f'{prefix}recovered {part} Subgraph_vol')
+                ax.fill_between(x, np.clip(y - error, 0, 100) if percentage else y - error,
+                                np.clip(y + error, 0, 100) if percentage else y + error, alpha=0.5,
+                                edgecolor='#fff530', facecolor='#ede998')
 
-    # Set the labels on all 3 axes
+    ax.grid()
     ax.set_xlabel("Leakage (%)")
-    ax.set_ylabel(f"{prefix}Recovered files")
-    ax2.set_ylabel(f"{prefix}Queries recovered")
-
-    # Limit the x-axis to the first and last leakage percentage
+    ax.set_ylabel(f"{prefix}Recovered {part}")
     plt.xlim([leaked_percentages[0], leaked_percentages[-1]])
 
-    # Combine the legend for all 2 y-axis
-    handles, labels = [(a + b) for a, b in zip(ax.get_legend_handles_labels(), ax2.get_legend_handles_labels())]
-    ax.legend(handles, labels, loc='lower right')
+    ax.legend(loc='lower right')
 
-    # Save the plot with an appropriate title
-    fig.suptitle(f"{prefix}Files and {prefix}queries recovered for the {dataset} dataset")
-    title = f'Attack {dataset}{" compared" if compare else ""}'
+    title = f"Accuracy {'VAL ' if not compare else ''}{prefix}{part} recovered{' compared' if compare else ''}"
+    fig.suptitle(title)
     plt.tight_layout()
-    plt.savefig(f'./plots/Accuracy {"percentage " if percentage else ""}' + title, dpi=300, pad_inches=0)
+    plt.savefig(f'./plots/{title}', dpi=300, pad_inches=0)
     plt.show()
 
 
 if __name__ == '__main__':
-    dataset = 'enron'  # enron / lucene / wiki
     compare = True
-    leaked_percentages = [0.1, 0.5, 1, 5, 10, 30]
+    leaked_percentages = [0.1, 0.5, 1, 5, 10]
 
-    # We can't compare with the lucene or wiki database
-    # Since we don't have data from the LEAP or Subgraph attack with this dataset
-    if dataset != 'enron':
-        compare = False
+    colors = {'enron': ['#1B2ACC', '#089FFF'],
+              'lucene': ['#3F7F4C', '#7EFF99'],
+              'wiki': ['#fff530', '#ede998']
+              }
 
-    # Plot actual numbers
-    plot()
-    # Plot percentages
-    plot(True)
+    if compare:
+        leaked_percentages.append(30)
+
+        plot(['enron'], part='files')
+        plot(['enron'], True, 'files')
+
+        plot(['enron'], part='queries')
+        plot(['enron'], True, 'queries')
+    else:
+        plot(colors.keys(), part='files')
+        plot(colors.keys(), True, 'files')
+
+        plot(colors.keys(), part='queries')
+        plot(colors.keys(), True, 'queries')

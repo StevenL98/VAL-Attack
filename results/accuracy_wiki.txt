@@ -88,3 +88,4 @@ Percentage leaked:	10	Known files:	5000	Files recovered:	4418	Accuracy:	100.0%	N
 Percentage leaked:	10	Known files:	5000	Files recovered:	4448	Accuracy:	100.0%	Nr keywords:	5000	Queries recovered:	4988	Percentage recovered:	99.76%	Accuracy:	100.0%
 Percentage leaked:	10	Known files:	5000	Files recovered:	4429	Accuracy:	100.0%	Nr keywords:	5000	Queries recovered:	4986	Percentage recovered:	99.72%	Accuracy:	100.0%
 Percentage leaked:	10	Known files:	5000	Files recovered:	4441	Accuracy:	100.0%	Nr keywords:	5000	Queries recovered:	4985	Percentage recovered:	99.7%	Accuracy:	100.0%
+Percentage leaked:	10	Known files:	5000	Files recovered:	4459	Accuracy:	100.0%	Nr keywords:	5000	Queries recovered:	4991	Percentage recovered:	99.82%	Accuracy:	100.0%

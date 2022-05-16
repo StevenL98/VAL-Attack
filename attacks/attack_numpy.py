@@ -253,6 +253,10 @@ class Attack:
 
                 # Get the number of keywords for document j
                 sum_Aj = sum_A_[j_]
+
+                if sum_Aj not in sum_B_dict:
+                    continue
+
                 # And the server candidates with the same number of keywords as document j
                 candidates = sum_B_dict[sum_Aj]
 

@@ -155,9 +155,7 @@ def plot(datasets, percentage=False, part='files', countermeasures=False):
 
     title = f"Accuracy {'VAL ' if not compare else ''}{prefix}{part} recovered" \
             f"{' compared' if compare else ' countermeasures' if countermeasures else ''}"
-    fig.suptitle(title)
     plt.tight_layout()
-    title = title.replace('%', 'percentage ').replace('#', 'nr ')
     plt.savefig(f'./plots/{title}', dpi=300, pad_inches=0)
     plt.show()
 
@@ -177,6 +175,7 @@ if __name__ == '__main__':
               }
 
     if countermeasure:
+        leaked_percentages.append(30)
         data = ['enron']
 
         plot(data, part='files', countermeasures=countermeasure)

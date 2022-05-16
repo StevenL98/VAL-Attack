@@ -71,7 +71,7 @@ if __name__ == '__main__':
     # Automate the runs for each leakage percentage
     percentages_leaked = [0.1, 0.5, 1, 5, 10, 30]
 
-    countermeasure = ['padding']  # / obfuscation / padding / volume
+    countermeasure = []  # / obfuscation / padding / volume
 
     countermeasure_prefix = "_[" + ','.join(countermeasure) + "]" if len(countermeasure) > 0 else ''
 

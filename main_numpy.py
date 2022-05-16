@@ -69,7 +69,7 @@ if __name__ == '__main__':
     # The number of keywords
     nr_keywords = 5000
     # Automate the runs for each leakage percentage
-    percentages_leaked = [0.5, 1, 5, 10, 30]
+    percentages_leaked = [0.1, 0.5, 1, 5, 10, 30]
 
     countermeasure = ['padding']  # / obfuscation / padding / volume
 
@@ -170,15 +170,19 @@ if __name__ == '__main__':
                             known_files, server_files)
             query_map, file_map = attack.attack()
 
+            if len(countermeasure) > 0:
+                # Only take the correct matches when using countermeasures
+                query_map = {query: keyword for query, keyword in query_map.items() if query.rsplit('_', 1)[0] == keyword}
             # Calculate the query accuracy by "decrypting" the query and check for keyword equality
-            query_map = {query: keyword for query, keyword in query_map.items() if query.rsplit('_', 1)[0] == keyword}
             query_acc = np.mean([query.rsplit('_', 1)[0] == keyword for query, keyword in query_map.items()]) * 100
             query_acc = 0 if math.isnan(query_acc) else query_acc
             print(len(query_map), '/', len(known_keywords), 'queries recovered with ->', str(query_acc) + '%')
 
-            # Calculate the file accuracy by "decrypting"
-            # the encrypted file name and check for actual file equality
-            file_map = {efile: file for efile, file in file_map.items() if efile.rsplit('_', 1)[0] == file}
+
+            if len(countermeasure) > 0:
+                # Only take the correct matches when using countermeasures
+                file_map = {efile: file for efile, file in file_map.items() if efile.rsplit('_', 1)[0] == file}
+            # Calculate the file accuracy by "decrypting" the encrypted file name and check for actual file equality
             file_acc = np.mean([efile.rsplit('_', 1)[0] == file for efile, file in file_map.items()]) * 100
             file_acc = 0 if math.isnan(file_acc) else file_acc
             print(len(file_map), '/', len(known_files), 'files recovered with ->', str(file_acc) + '%')

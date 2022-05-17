@@ -84,7 +84,7 @@ def plot(datasets, percentage=False, part='files', countermeasures=False):
     for dataset in datasets:
         # Our result file
         if countermeasures:
-            for c in [['padding']]:  # , ['obfuscation'], ['volume'], ['padding', 'volume']]:
+            for c in [['padding'], ['obfuscation'], ['volume hiding'], ['padding', 'volume hiding']]:
                 countermeasure_prefix = ','.join(c)
                 file_name = f"accuracy_[{countermeasure_prefix}]_{dataset}.txt"
 
@@ -95,8 +95,7 @@ def plot(datasets, percentage=False, part='files', countermeasures=False):
                 y = np.array([acc[key][f'average_{part}'] for key in x])
                 error = [acc[key][f'error_{part}'] for key in x]
 
-                ax.plot(x, y, color=colors[countermeasure_prefix][0],
-                        label=f'{prefix}recovered {part} {countermeasure_prefix}')
+                ax.plot(x, y, color=colors[countermeasure_prefix][0], label=f'{countermeasure_prefix}')
                 ax.fill_between(x, np.clip(y - error, 0, 100) if percentage else y - error,
                                 np.clip(y + error, 0, 100) if percentage else y + error, alpha=0.5,
                                 edgecolor=colors[countermeasure_prefix][0], facecolor=colors[countermeasure_prefix][1])
@@ -156,22 +155,23 @@ def plot(datasets, percentage=False, part='files', countermeasures=False):
     title = f"Accuracy {'VAL ' if not compare else ''}{prefix}{part} recovered" \
             f"{' compared' if compare else ' countermeasures' if countermeasures else ''}"
     plt.tight_layout()
+    fig.suptitle(title)
     plt.savefig(f'./plots/{title}', dpi=300, pad_inches=0)
     plt.show()
 
 
 if __name__ == '__main__':
-    compare = False
+    compare = True
     leaked_percentages = [0.1, 0.5, 1, 5, 10]
     countermeasure = False
 
     colors = {'enron': ['#1B2ACC', '#089FFF'],
               'lucene': ['#3F7F4C', '#7EFF99'],
-              'wiki': ['#FFF530', '#EDE998'],
+              'wiki': ['#FFA500', '#FAD6a5'],
               'padding': ['#1B2ACC', '#089FFF'],
               'obfuscation': ['#3F7F4C', '#7EFF99'],
-              'volume': ['#FFF530', '#EDE998'],
-              "padding,volume": ['F620FA', 'F6A8F7']
+              'volume hiding': ['#FFA500', '#FAD6a5'],
+              "padding,volume hiding": ['F620FA', 'F6A8F7']
               }
 
     if countermeasure:

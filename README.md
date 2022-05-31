@@ -1,7 +1,9 @@
 # VAL-Attack
-Volume and Access Pattern Leakage-Abuse Attack with Leaked Documents
+Explore More, Reveal More - VAL: Volume and Access Pattern Leakage-abuse Attack with Leaked Documents
 
-This repo contains the implementation used to show the results in _Volume and Access Pattern Leakage-Abuse Attack with Leaked Documents_
+This repo contains the implementation used to show the results in _Explore More, Reveal More - VAL: Volume and Access Pattern Leakage-abuse Attack with Leaked Documents_
+
+https://bit.ly/VAL-attack-full-version
 
 ## Basis
 Everything used in the experiment is present here.
@@ -21,6 +23,7 @@ There are a number of files:
 - `plots`: Folder used to store the graphical figures made by `create_graphs.py`
 - `results`: Folder that stores the results from the VAL attack, LEAP attack and the Subgraph<sub>vol</sub> attack.
 - `lucene.sh`: Script that downloads the files from the Apache Lucene mailing list
+- `requirements.txt`: File that shows the python required packages.
 
 ## Requirements
 - Python 3.9
